@@ -11,6 +11,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{import}
 %\input{glyphtounicode}
 
 
@@ -20,7 +21,7 @@
 % \usepackage[sfdefault]{roboto}
 % \usepackage[sfdefault]{noto-sans}
 
- \usepackage[default]{sourcesanspro}
+% \usepackage[default]{sourcesanspro}
 
 %\usepackage[scaled]{helvet}
 %\renewcommand\familydefault{\sfdefault}
@@ -111,8 +112,8 @@
 % \end{tabular*}
 
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-\textbf{\href{http://sourabhbajaj.com/}{\Large Yuki Kume}} & Email : \href{mailto:yuki0003@student.monash.edu}{yuki0003@student.monash.edu}\\
-\href{https://github.com/UnciaBit}{github.com/UnciaBit} $|$ \href{https://linkedin.com/in/yukikume}{linkedin.com/in/yukikume} \\
+\textbf{\Large Yuki Kume} & Email : \href{mailto:yuki0003@student.monash.edu}{yuki0003@student.monash.edu}\\
+\href{https://github.com/UnciaBit}{GitHub: UnciaBit} $|$ \href{https://linkedin.com/in/yukikume}{LinkedIn: yukikume} \\
 \end{tabular*}
 
 %\begin{center}
@@ -124,316 +125,27 @@
 %\end{center}
 
 %-----------EDUCATION-----------
-\section{Education}
-\resumeSubHeadingListStart
-\resumeSubheading
-{Monash Universtiy}{Clayton, Melbourne}
-{Bachelor of Computer Science Advanced (Honours), Major in Computer Networks and Security}{Feb. 2022 -- Dec. 2025}
-\resumeItemListStart
-\setlength\itemsep{0px}
-\resumeItem{\textbf{Extracurriculars}: Monash Cybersecurity Club (Secretary), Monash DeepNeuron (Project Manager), Google Developer Student Clubs (GDSC Lead)}
-\resumeItem{\textbf{GPA}: 3.75/4.00 | WAM: 84 (2 Semesters, 8 Units)}
-\resumeItemListEnd
-\resumeSubHeadingListEnd
-%------------ Skills ---------------
+\import{sections}{education}
 
-\section{Technical Skills}
-\begin{itemize}[leftmargin=0.15in, label={}]
-\small{\item{
-\textbf{Languages}{: Python, C++, TypeScript/Javascript, C\#, Java, PHP | MySQL, PostgreSQL, Redis} \\
-\textbf{Frameworks}{: Apache Spark, Node.js, Flask, React, jQuery} \\
-\textbf{Dev Tools \& DevOps}{: Git, Docker, Kubernetes, Travis CI, GitHub CI/CD/Actions, Azure DevOps, Ansible, Puppet, GCP} \\
-}}
-\end{itemize}
+%------------ Skills ---------------
+\import{sections}{skills}
 
 %-----------EXPERIENCE-----------
-\section{Experience}
-\resumeSubHeadingListStart
-
-
-% -----------Multiple Positions Heading-----------
-%    \resumeSubSubheading
-%     {Software Engineer I}{Oct 2014 - Sep 2016}
-%     \resumeItemListStart
-%        \resumeItem{Apache Beam}
-%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%     \resumeItemListEnd
-%    \resumeSubHeadingListEnd
-%-------------------------------------------
-
-\resumeSubheading
-{Research Assistant}{Dec. 2022 -- Present}
-{Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-    \resumeItem{Optimisation of zk-SNARK zero-knowledge post quantum proof protocol}
-    \resumeItem{Reimplementation of the \href{https://github.com/scipr-lab/libsnark/}{libsnark C++ library} to support our security parameters/field sizes}
-    \resumeItem{Project currently under work - Details are omitted}
-\resumeItemListEnd
-
-\resumeSubheading
-{Summer Vacation Research Scholarship Program}{Nov. 2022 -- Present}
-{Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Developing a middlebox system that enables stateful traffic inspection on an encrypted communication}
-\resumeItem{Currently being developed as a C++ library}
-\resumeItem{Project currently under work - Details are omitted}
-\resumeItemListEnd
-
-\resumeSubheading
-{Research Assistant}{Oct. 2022 -- Dec. 2022}
-{Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Developed a secure database architecture utilising searchable symmetric encryption to enable insertion, storage, and query of data on an encrypted database}
-\resumeItem{Developed with high performance in mind - parallelism achieved using Apache Spark}
-\resumeItem{Literature currently under review - Details are omitted}
-\resumeItemListEnd
-
-\resumeSubheading
-{Systems Officer}{Sep. 2022 -- Present}
-{Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Migrate the university’s infrastructure automation software from Puppet to Ansible}
-\resumeItem{Developing Ansible roles from Puppet modules and other custom roles to support additional configurations}
-\resumeItem{Developing Python script to batch convert 1500+ host configuration files from Puppet to Ansible (YAML)}
-\resumeItem{Utilising Azure DevOps Pipeline + podman containers, Ansible Automation Platform to automate testing on Ubuntu, RHEL 7, and RHEL 8 systems}
-\resumeItemListEnd
-
-\resumeSubheading
-{Research Assistant}{Apr. 2022 -- Oct. 2022}
-{Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Developed a .NET cryptography library for a post‐quantum lattice‐based public‐key cryptography algorithm to add to the Bouncy Castle library}
-\resumeItem{Completed C\# implementation of NIST PQC Round 3 NTRU Prime and NTRU algorithms from C reference implementations from NIST}
-\resumeItem{Using C# + .NET Framework Standard 2.0}
-\resumeItem{Initial implementation released as an open‐source library on \href{https://github.com/bcgit/bc-csharp}{Bouncy Castle's GitHub repository}}
-\resumeItemListEnd
-
-\resumeSubheading
-{Winter Vacation Research Scholarship Program}{Jun. 2022 -- July.2022}
-{Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Literature review on: stateful network functions and protocols, TCP and TCP state machine, finite state machine, packet inspection (DPI), Function Secret Sharing (FSS), middleboxes, firewall, multi-party computation}
-\resumeItemListEnd
-\resumeSubHeadingListEnd
-
-%-----------PROJECTS-----------
-\section{Projects}
-\resumeSubHeadingListStart
-
-
-\resumeSubheading
-{Searchable Encrypted Database}{Jun. 2022 -- July.2022}
-{Java, Maven, Redis, Apache Spark}{}
-\resumeItemListStart
-\resumeItem{Developed a searchable encrypted database architecture}
-\resumeItem{Enabled query and insertion of data on an encrypted database}
-\resumeItem{High performance and parallelism achieved using Apache Spark}
-\resumeItemListEnd
-
-\resumeSubheading
-{NTRU and NTRU Prime Post Quantum Cryptography .NET Library}{Apr. 2022 -- Nov.2022}
-{C\#, .NET, C}{\href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntruprime}{GitHub (NTRU Prime)}, \href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntru}{GitHub (NTRU)}}
-\resumeItemListStart
-\resumeItem{Developed a post‐quantum lattice‐based public‐key cryptography library for C\# .NET Framework Standard 2.0}
-\resumeItem{Implemented NIST PQC Round 3’s NTRU Prime and NTRU algorithms}
-\resumeItem{Resistance against side-channel attacks such as timing attack were considered during development}
-\resumeItem{Unit testing of the implementation using Known Answer Tests (KAT) from NIST}
-\resumeItemListEnd
-
-\resumeSubheading
-{AI Bug Hunter ‐ ML‐based Real‐Time Security Vulnerability Detection Tool}{Jun. 2022 -- Nov.2022}
-{Python, Flask, PyTorch, ONNX, TypeScript, Node.js, GCP Vertex AI, Docker, VSCode API}{\href{https://github.com/aibughunter/aibughunter}{GitHub}, \href{https://marketplace.visualstudio.com/items?itemName=AIBugHunter.aibughunter}{VSCode Marketplace}}
-\resumeItemListStart
-\resumeItem{VSCode Extension that detects vulnerable functions in real time, provide analytics on the vulnerable line, and suggest potential fixes}
-\resumeItem{Using PyTorch AI Model built by a PhD Student at Monash University, and working closely with him during development}
-\resumeItem{Developed Docker Image and FastAPI script to provide API for model inference, and Python stress benchmark tool to evaluate its scalability}
-\resumeItem{Demoed at Monash University Open Day and TechFutureFest 2022}
-\resumeItemListEnd
-
-\resumeSubheading
-{finman ‐ Command line personal finance manager}{Jan. 2022}
-{C++, SQLite}{\href{https://github.com/UnciaBit/finman}{GitHub}}
-\resumeItemListStart
-\resumeItem{Command‐line finance manager built using C++}
-\resumeItem{Using SQLite as backend database}
-\resumeItemListEnd
-
-\resumeSubheading
-{Sequence Analyser ‐ DNA/RNA Sequence Analysis Tool}{Jan. 2022}
-{C}{\href{https://github.com/UnciaBit/Sequence-Analysis}{GitHub}}
-\resumeItemListStart
-\resumeItem{Simple and fast Sequence analysis tool (DNA/RNA) based on Aho‐Corasick algorithm for string matching}
-\resumeItem{Inputs a sequence and a pattern, outputs the number of occurrences of the pattern in the sequence, and it’s position}
-\resumeItemListEnd
-
-\resumeSubheading
-{UnciaNet ‐ Custom implementation of a distributed blockchain network}{Dec. 2021 -- Jan 2022}
-{C}{\href{https://github.com/UnciaBit/UnciaNet-FE}{GitHub}}
-\resumeItemListStart
-\resumeItem{Blockchain network built from scratch with NodeJS and Redis backend}
-\resumeItem{Developed Node.js REST API endpoints for creating transactions, Redis Pub/Sub for announcing blocks}
-\resumeItemListEnd
-
-\resumeSubheading
-{KeySort ‐ Command Line Utility for Sorting Local Files with Keyboard Keys}{Nov. 2021}
-{Rust}{\href{https://github.com/UnciaBit/keysort}{GitHub}}
-\resumeItemListStart
-\resumeItem{Small command‐line utility to sort files and folders into character assigned folders}
-\resumeItem{Build with Rust with efficiency and speed in consideration}
-\resumeItemListEnd
-
-
-\resumeSubheading
-{EqManage ‐ Equipment Management System}{Oct 2019 -- Jan. 2021}
-{PHP, Javascript, MySQL, Apache, HTML, CSS}{\href{https://github.com/YukiKume/EqManage}{GitHub}}
-\resumeItemListStart
-\resumeItem{Developed an equipment inventory and rental management system built for Dulwich College Suzhou}
-\resumeItem{Administrators can manage the equipment inventory, manage user checkouts \& return, track overdue, with dashboards}
-\resumeItem{Users can send equipment rental request, set renting period and message. Email notifications of account creation and overdue notifications}
-\resumeItem{Using MySQL as the backend with 6 relational tables}
-\resumeItemListEnd
-
-
-\resumeSubheading
-{cocoon ‐ WordPress Theme}{Jan. 2022}
-{POEdit, PHP, Javascript, CSS, HTML}{\href{https://github.com/xserver-inc/cocoon}{GitHub}}
-\resumeItemListStart
-\resumeItem{Pull request contribution to an OpenSource project: yhira/cocoon (moved to xserver‐inc/cocoon in Sep 2022)}
-\resumeItem{Main contribution in Japanese-English translation. Pull request accepted twice to merge into the main repository}
-\resumeItemListEnd
-
-
-\resumeSubheading
-{Tower defense Unity game}{Jan. 2018}
-{C\# (Unity), Cinema 4D}{}
-\resumeItemListStart
-\resumeItem{Single player tower defense game built using Unity}
-\resumeItem{Developed AI enemies that moves along the map at different levels. All elements of the game including the tower + stage design was solo developed}
-\resumeItemListEnd
-
-
-%\resumeProjectHeading
-%{\textbf{Searchable Encrypted Database} $|$ \emph{Java, Maven, Redis, Apache Spark}}{Oct 2022 -- Dec 2022}
-%\resumeItemListStart
-%\resumeItem{Developed a searchable encrypted database architecture}
-%\resumeItem{Enabled query and insertion of data on an encrypted database}
-%\resumeItem{High performance and parallelism achieved using Apache Spark}
-%\resumeItemListEnd
-
-%
-%\resumeProjectHeading
-%{\textbf{NTRU and NTRU Prime .NET Post Quantum Cryptography Library} $|$ \emph{C\#, .NET, C}}{Apr. 2022 -- Nov. 2022}
-%\begin{itemize}[label={}]
-%\small{\item{
-%\textbf{Source Code}{: \href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntruprime}{GitHub (NTRU Prime)}, \href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntru}{GitHub (NTRU)}} \\
-%}}
-%\vspace{-6px}
-%\end{itemize}
-%\resumeItemListStart
-%\resumeItem{Developed a post‐quantum lattice‐based public‐key cryptography library for C\# .NET Framework Standard 2.0}
-%\resumeItem{Implemented NIST PQC Round 3’s NTRU Prime and NTRU algorithms}
-%\resumeItem{Developed with side-channel attack such as timing attack in mind}
-%\resumeItem{Open‐sourced through Bouncy Castle’s GitHub repository}
-%\resumeItem{Unit testing of the implementation using Known Answer Tests (KAT) from NIST}
-%\resumeItemListEnd
-%\resumeSubHeadingListEnd
-
-%\resumeProjectHeading
-%{\textbf{AI Bug Hunter ‐ ML‐based Real‐Time Security Vulnerability Detection Tool} $|$ \emph{Python, Flask/Uvicorn/Gunicorn, Pytorch, ONNX, TypeScript, NodeJS, GCP Vertex AI, Docker, VSCode API)}}{Apr. 2022 -- Nov. 2022}
-%\begin{itemize}[label={}]
-%\small{\item{
-%\textbf{Source Code}{: \href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntruprime}{GitHub (NTRU Prime)}, \href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntru}{GitHub (NTRU)}} \\
-%}}
-%\vspace{-6px}
-%\end{itemize}
-%\resumeItemListStart
-%\resumeItem{Developed a post‐quantum lattice‐based public‐key cryptography library for C\# .NET Framework Standard 2.0}
-%\resumeItem{Implemented NIST PQC Round 3’s NTRU Prime and NTRU algorithms}
-%\resumeItem{Developed with side-channel attack such as timing attack in mind}
-%\resumeItem{Open‐sourced through Bouncy Castle’s GitHub repository}
-%\resumeItem{Unit testing of the implementation using Known Answer Tests (KAT) from NIST}
-%\resumeItemListEnd
-
-
-\resumeSubHeadingListEnd
-
-
-
-%-----------EC-----------
-\section{Extracurriculars and Leadership}
-\resumeSubHeadingListStart
-
-\resumeSubheading
-{Google Developer Student Clubs (GDSC) Lead}{Jun. 2022 -- Present}
-{Google, GDSC \& Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Establish GDSC Monash University Chapter by partnering with WIRED (IT Faculty official club)}
-\resumeItem{Administrate all logistics and workflow of the club. Establishing processes and procedures for the club operations}
-\resumeItem{Design and present technical workshops (GCP and Android) to present to community members}
-\resumeItemListEnd
-
-\resumeSubheading
-{Secretary (2023), Member Training Officer (2022)}{Jun. 2022 -- Present}
-{Monash Cybersecurity Club (MonSec)}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Designed and ran a workshop on XXE Web Exploitation and demonstration of HackTheBox challenges}
-\resumeItem{Inviting guest speakers to present topics in cyber security}
-\resumeItem{Taking minutes during meetings + redesigning minute template for improved efficiency}
-\resumeItemListEnd
-
-
-\resumeSubheading
-{Media Prefect}{July. 2019 -- July 2020}
-{Dulwich College Suzhou}{Suzhou, Jiangsu}
-\resumeItemListStart
-\resumeItem{Managing the media team, directed the coverage and production of event promotional/coverage videos}
-\resumeItem{Responsible for equipment purchase decisions over \$AUD 30,000}
-\resumeItem{Working closely with the marketing department to ensure the school’s brand is represented consistently}
-\resumeItemListEnd
-
-\resumeSubHeadingListEnd
-
+\import{sections}{experience}
 
 %------------ Honours and Awards ---------------
+\import{sections}{awards}
 
-\section{Honours \& Awards}
-\begin{itemize}[leftmargin=0.15in, label={}]
-\small{\item{
-{2022}{ \textbf{Summer Vacation Research Scholarship (AUD \$6,000)}, Monash University} \\
-{2022}{ \textbf{Black Hat USA 2022 Student Scholarship (USD \$595)}, Black Hat} \\
-{2022}{ \textbf{Winter Vacation Research Scholarship (AUD \$2,000)}, Monash University} \\
-{2022}{ \textbf{Black Hat Asia 2022 Student Scholarship (SGD \$799)}, Black Hat} \\
-{2021}{ \textbf{International Study Grant (AUD \$10,000)}, Monash University} \\
-}}
-\end{itemize}
-
+%-----------PROJECTS-----------
+\import{sections}{projects}
 
 %-----------EC-----------
-\section{Extracurriculars and Leadership}
-\resumeSubHeadingListStart
+\import{sections}{ec}
 
-\resumeSubheading
-{Homelab/Personal Server Administration}{2018 -- Present}
-{Google, GDSC \& Monash University}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Hosting services on both VPS (Vultr \& Hetzner) through Docker and personal server managing VMs and experimenting with Kuberentes}
-\resumeItem{Reverse proxy, SSL, intrusion detection, access control, firewall and other basic networking security/configuration applied}
-\resumeItem{Current VPS Deployment: Ubuntu LTS 20.04 on Hetzner VPS}
-\resumeItem{Current local Deployment: VMWare ESXi/vSphere 7.0 on Dell PowerEdge R730}
-\resumeItemListEnd
 
-\resumeSubheading
-{Penetration Testing / Cybersecurity}{2022 -- Present}
-{Web exploitation, binary exploitation, exploit development, reverse engineering, cryptography}{Clayton, Melbourne}
-\resumeItemListStart
-\resumeItem{Solving challenges on HackTheBox (weekly since 2023), contributing to security/cryptography research, running workshops}
-\resumeItem{Attended CTFs: picoCTF 2022 (Solo), MonSec CTF 2022 (Team), UMassCTF 2022 (Team), RITSEC CTF 2022 (Team), Google CTF 2022 (Team), Team Oceania Qualifiers 2023 Round 1 (Solo)}
-\resumeItem{Attended SANS ”FOR509: Enterprise Cloud Forensics and Incident Response” training workshop at Australian Cyber Conference 2022}
-\resumeItem{Currently studying for CCNA and OSCP certification}
-\resumeItemListEnd
 
-\resumeSubHeadingListEnd
-
+%-----------Personal-----------
+%\import{sections}{personal}
 
 % First author and co-author for aibughunter
 %-------------------------------------------
