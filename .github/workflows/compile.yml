@@ -53,5 +53,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./cv.pdf
-          asset_name: cv.pdf
+          asset_name: cv-${{ steps.date.outputs.date }}.pdf
           asset_content_type: pdf
