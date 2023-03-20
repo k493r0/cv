@@ -16,7 +16,7 @@ jobs:
         with:
           root_file: cv.tex
           latexmk_use_xelatex: true
-          args: -pdf -latexoption=-file-line-error -latexoption=-interaction=nonstopmode -synctex=1
+          args: -pdf -file-line-error -interaction=nonstopmode
           continue_on_error: true
 
       - name: Get current date
