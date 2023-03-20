@@ -15,7 +15,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cv.tex
-          latexmk_use_xelatex: true
+#          latexmk_use_xelatex: true
           args: -pdf -file-line-error -interaction=nonstopmode
           continue_on_error: true
 
