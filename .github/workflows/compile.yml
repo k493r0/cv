@@ -18,6 +18,7 @@ jobs:
 #          latexmk_use_xelatex: true
           args: -pdf -file-line-error -interaction=nonstopmode -f
           continue_on_error: true
+        continue-on-error: true
 
       - name: Get current date
         id: date
