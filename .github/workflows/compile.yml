@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -61,9 +62,7 @@ jobs:
           asset_name: YukiK_CV_Onepage.pdf
           asset_content_type: pdf
 
-      - name: Upload Release Asset
-        uses: actions/checkout@v2
-        run: |
+      - run: |
           set -x
           assets=()
           for asset in ./*.pdf; do
