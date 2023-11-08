@@ -60,3 +60,16 @@ jobs:
           asset_path: ./onepage-generic/cv.pdf
           asset_name: YukiK_CV_Onepage.pdf
           asset_content_type: pdf
+
+      - name: Upload Release Asset
+        uses: actions/checkout@v2
+        run: |
+          set -x
+          assets=()
+          for asset in ./*.pdf; do
+            assets+=("-a" "$asset")
+          done
+          tag_name="${GITHUB_REF##*/}"
+          hub release create "${assets[@]}" -m "$tag_name" "$tag_name"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
