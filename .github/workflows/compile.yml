@@ -14,7 +14,10 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: cv.tex
+          root_file: |
+            full/cv.tex
+            onepage-generic/cv.tex
+            twopage-generic/cv.tex
 #          latexmk_use_xelatex: true
           args: -pdf -file-line-error -interaction=nonstopmode -f
           continue_on_error: true
@@ -54,6 +57,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./cv.pdf
-          asset_name: cv.pdf
+          asset_path: ./onepage-generic/cv.pdf
+          asset_name: YukiK_CV_Onepage.pdf
+          asset_content_type: pdf
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./two-generic/cv.pdf
+          asset_name: YukiK_CV_Twopage.pdf
+          asset_content_type: pdf
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./full/cv.pdf
+          asset_name: YukiK_CV.pdf
           asset_content_type: pdf
