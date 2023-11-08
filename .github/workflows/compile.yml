@@ -40,16 +40,16 @@ jobs:
         with:
           utcOffset: "+10:00"
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: update-${{ steps.date.outputs.date }}
-          release_name: Release ${{ steps.current-time.outputs.time }}
-          draft: false
-          prerelease: false
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: update-${{ steps.date.outputs.date }}
+#          release_name: Release ${{ steps.current-time.outputs.time }}
+#          draft: false
+#          prerelease: false
 
 #      - name: Upload Release Asset
 #        id: upload-release-asset
@@ -69,6 +69,6 @@ jobs:
             assets+=("-a" "$asset")
           done
           tag_name="${GITHUB_REF##*/}"
-          hub release create "${assets[@]}" -m "$tag_name" "$tag_name"
+          gh release create "update-${{ steps.date.outputs.date }}" "${assets[@]}" --notes "Release ${{ steps.current-time.outputs.time }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
