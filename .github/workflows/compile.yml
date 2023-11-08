@@ -46,7 +46,6 @@ jobs:
           for asset in ./*.pdf; do
             assets+=("$asset")
           done
-          tag_name="${GITHUB_REF##*/}"
-          gh release create "Release ${{ steps.current-time.outputs.time }}" "${assets[@]}" --notes "update-${{ steps.date.outputs.date }}"
+          gh release create "update-${{ steps.date.outputs.date }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
