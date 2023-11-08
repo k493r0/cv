@@ -47,6 +47,6 @@ jobs:
             assets+=("$asset")
           done
           tag_name="${GITHUB_REF##*/}"
-          gh release create "update-${{ steps.date.outputs.date }}" "${assets[@]}" --notes "Release ${{ steps.current-time.outputs.time }}"
+          gh release create "Release ${{ steps.current-time.outputs.time }}" "${assets[@]}" --notes "update-${{ steps.date.outputs.date }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
