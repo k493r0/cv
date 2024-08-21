@@ -8,6 +8,8 @@ on:
 jobs:
   gather-info:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
         tag: ${{ steps.set-tag-release.outputs.tag }}
         release_name: ${{ steps.set-tag-release.outputs.release_name }}
