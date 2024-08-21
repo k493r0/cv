@@ -40,6 +40,8 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
@@ -51,8 +53,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: ./
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get current date
         id: date
@@ -85,5 +85,3 @@ jobs:
             assets+=("$asset")
           done
           gh release create "${{ steps.set-tag-release.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
