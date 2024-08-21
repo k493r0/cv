@@ -80,8 +80,12 @@ jobs:
       - name: Create GitHub Release
         run: |
           set -x
-          assets=()
-          for asset in ./*.pdf; do
-            assets+=("$asset")
-          done
+          
+          pdf_files=$(find . -type f -name '*.pdf')
+          if [ -z "$pdf_files" ]; then
+            echo "No PDF files found to upload."
+            exit 0
+          fi
+          
+          assets=($pdf_files)
           gh release create "${{ steps.set-tag-release.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
