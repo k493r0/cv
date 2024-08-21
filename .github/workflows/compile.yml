@@ -6,6 +6,29 @@ on:
     branches: [ "main" ]
 
 jobs:
+  gather-info:
+    runs-on: ubuntu-latest
+    outputs:
+        tag: ${{ steps.set-tag-release.outputs.tag }}
+        release_name: ${{ steps.set-tag-release.outputs.release_name }}
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
+
+      - name: Get release count for the day
+        id: get-release-count
+        run: |
+          releases=$(gh release list --limit 100)
+          count=$(echo "$releases" | grep -c "v${{ steps.date.outputs.date }}." || false)
+          echo "::set-output name=count::$(($count + 1))"
+
+      - name: Set tag and release name
+        id: set-tag-release
+        run: |
+          echo "::set-output name=tag::v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
+          echo "::set-output name=release_name::Release v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
+
   build:
     runs-on: ubuntu-latest
 
@@ -22,7 +45,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Write commit hash to version file
-        run: echo "${{ github.sha }}" > version
+        run: echo "$(git rev-parse --short HEAD) | ${{ needs.gather-info.outputs.tag }}" > version
 
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
@@ -41,7 +64,7 @@ jobs:
           path: ${{ matrix.pdf_file }}
 
   release:
-    needs: build
+    needs: [ build, gather-info ]
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -54,23 +77,6 @@ jobs:
         with:
           path: ./
 
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
-
-      - name: Get release count for the day
-        id: get-release-count
-        run: |
-          releases=$(gh release list --limit 100)
-          count=$(echo "$releases" | grep -c "v${{ steps.date.outputs.date }}." || false)
-          echo "::set-output name=count::$(($count + 1))"
-
-      - name: Set tag and release name
-        id: set-tag-release
-        run: |
-          echo "::set-output name=tag::v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
-          echo "::set-output name=release_name::Release v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
-
       - name: Get current time
         uses: josStorer/get-current-time@v2.0.2
         id: current-time
@@ -78,6 +84,7 @@ jobs:
           utcOffset: "+10:00"
 
       - name: Create GitHub Release
+        id: create-release
         run: |
           set -x
           
@@ -88,4 +95,5 @@ jobs:
           fi
           
           assets=($pdf_files)
-          gh release create "${{ steps.set-tag-release.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
+          # gh release create "${{ steps.set-tag-release.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
+          gh release create "${{ needs.gather-info.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}" --title "${{ needs.gather-info.outputs.release_name }}"
