@@ -1,0 +1,156 @@
+\nonstopmode
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{import}
+\usepackage{xparse}
+\usepackage{etoolbox}
+%\usepackage{hyperref}
+
+
+%\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+
+% \usepackage[default]{sourcesanspro}
+
+%\usepackage[scaled]{helvet}
+%\renewcommand\familydefault{\sfdefault}
+%\usepackage[T1]{fontenc}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+%    \vspace{-4pt}\scshape\raggedright\large
+    \vspace{-4pt}\raggedright\large
+}{}{0em}{}[\color{black}\titlerule\vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+
+\newcommand{\resumeItem}[1]{
+    \item\small{
+            {\footnotesize#1 \vspace{-4pt}}
+    }
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \fontsize{10}{10}\selectfont#2 \\
+        \textit{\footnotesize#3} & \textit{\footnotesize #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+        \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand*{\cvRoot}{./onepage}%
+
+%-------------------------------------------
+
+\begin{document}
+
+%----------HEADING----------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+	\textbf{\Large Yuki Kume}\\
+	\href{https://github.com/k493r0}{GitHub: k493r0} $|$ \href{https://linkedin.com/in/yukikume}{LinkedIn: yukikume} $|$ Email : \href{mailto:yuki0003@student.monash.edu}{yuki0003@student.monash.edu}\\
+\end{tabular*}
+
+%\begin{center}
+%\textbf{\Huge \scshape Yuki Kume} \\ \vspace{1pt}
+%%\small 123-456-7890 $|$ \href{mailto:x@x.com}{\underline{jake@su.edu}} $|$
+%\href{mailto:yuki0003@student.monash.edu}{\underline{yuki0003@student.monash.edu}} $|$
+%\href{https://linkedin.com/in/yukikume}{\underline{linkedin.com/in/yukikume}} $|$
+%\href{https://github.com/k493r0}{\underline{github.com/k493r0}}
+%\end{center}
+
+%-----------EDUCATION-----------
+\import{\cvRoot/sections}{education}
+
+%-----------EXPERIENCE-----------
+\import{\cvRoot/sections}{experience}
+
+%------------ Honours and Awards ---------------
+%\import{\cvRoot/sections}{awards}
+
+%-----------PROJECTS-----------
+\import{\cvRoot/sections}{projects}
+
+%-----------EC-----------
+\import{\cvRoot/sections}{ec}
+
+%------------ Skills ---------------
+\import{\cvRoot/sections}{skills}
+
+%-----------Publications-----------
+%\import{\cvRoot/sections}{publications}
+
+%-----------Personal-----------
+%\import{\cvRoot/sections}{personal}
+%
+\vspace*{-0.45cm}
+\begin{center}
+\noindent\textit{\scriptsize \input{./version}}
+\end{center}
+\end{document}
