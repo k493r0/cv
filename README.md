@@ -1,9 +1,7 @@
-# Yuki's CV
+# Yuki Kume's CV/Resume
 
 ## Versions
 
-**Full CV (2+ pages)**: [full.pdf](https://github.com/k493r0/cv-ats/releases/latest/download/full.pdf)
+**One Page CV**: [YukiK_onepage.pdf](https://github.com/k493r0/cv-ats/releases/latest/download/YukiK_onepage.pdf)
 
-**Two Page CV**: [twopage.pdf](https://github.com/k493r0/cv-ats/releases/latest/download/twopage.pdf)
-
-**One Page CV**: [onepage.pdf](https://github.com/k493r0/cv-ats/releases/latest/download/onepage.pdf)
+**Two Page CV**: [YukiK_twopage.pdf](https://github.com/k493r0/cv-ats/releases/latest/download/YukiK_twopage.pdf)

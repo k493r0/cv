@@ -8,6 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        include:
+          - root_file: onepage/main.tex
+            pdf_file: YukiK_onepage.pdf
+          - root_file: twopage/main.tex
+            pdf_file: YukiK_twopage.pdf
+
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
@@ -15,24 +24,29 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: |
-            full/full.tex
-            onepage-generic/onepage.tex
-            twopage-generic/twopage.tex
-#          latexmk_use_xelatex: true
+          root_file: ${{ matrix.root_file }}
           args: -pdf -file-line-error -interaction=nonstopmode -f
           continue_on_error: true
+          post_compile: |
+            mv main.pdf ${{ matrix.pdf_file }}
         continue-on-error: true
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y%m%d%H%M')"
-        if: always()
-      - name: Test with environment variables
-        run: echo $TAG_NAME - $RELEASE_NAME
-        env:
-          TAG_NAME: update-${{ steps.date.outputs.date }}
-          RELEASE_NAME: ${{ steps.date.outputs.date }} Update
+        run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
+
+      - name: Get release count for the day
+        id: get-release-count
+        run: |
+          releases=$(gh release list --limit 100)
+          count=$(echo "$releases" | grep -c "${{ steps.date.outputs.date }}.")
+          echo "::set-output name=count::$(($count + 1))"
+
+      - name: Set tag and release name
+        id: set-tag-release
+        run: |
+          echo "::set-output name=tag::${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
+          echo "::set-output name=release_name::Release ${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
 
       - name: Get current time
         uses: josStorer/get-current-time@v2.0.2
@@ -46,6 +60,6 @@ jobs:
           for asset in ./*.pdf; do
             assets+=("$asset")
           done
-          gh release create "update-${{ steps.date.outputs.date }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
+          gh release create "${{ steps.set-tag-release.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
