@@ -32,7 +32,7 @@ jobs:
         id: set-tag-release
         run: |
           echo "::set-output name=tag::v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
-          echo "::set-output name=release_name::Release v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
+          echo "::set-output name=release_name::v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
 
   build:
     runs-on: ubuntu-latest
