@@ -48,6 +48,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: ./
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get current date
         id: date
