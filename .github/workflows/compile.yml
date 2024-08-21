@@ -62,7 +62,7 @@ jobs:
         id: get-release-count
         run: |
           releases=$(gh release list --limit 100)
-          count=$(echo "$releases" | grep -c "${{ steps.date.outputs.date }}.")
+          count=$(echo "$releases" | grep -c "${{ steps.date.outputs.date }}." || true)
           echo "::set-output name=count::$(($count + 1))"
 
       - name: Set tag and release name
