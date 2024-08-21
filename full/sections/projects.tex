@@ -2,34 +2,42 @@
 \resumeSubHeadingListStart
 
 \resumeSubheading
+{Stateful Encrypted Packet Processing Protocol}{Jun. 2022 -- Present}
+{C++, OpenMP, CUDA, GTest}{}
+\resumeItemListStart
+\resumeItem{Developing secure middlebox protocol applying multiple Multi-Party Computation based cryptographoic primitives}
+\resumeItem{Using OpenMP and CUDA with algorithms optimised for parallel computations to achieve high performance and scalability}
+\resumeItemListEnd
+
+\resumeSubheading
+{Post Quantum Cryptography Library (Bouncy Castle)}{Apr. 2022 -- Present}
+{C\#, Rust, C}{\href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntruprime}{GitHub (NTRU Prime)}, \href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntru}{GitHub (NTRU)}}
+\resumeItemListStart
+\resumeItem{Developed a post‐quantum lattice‐based public‐key cryptography library in C\# .NET Framework Standard 2.0 and Rust}
+\resumeItem{Implemented NIST PQC Round 3’s NTRU Prime, NTRU, and Leighton–Micali (LMS)}
+\resumeItem{Constant-time implementation to resist against side-channel attacks, and successfully passed the security audit}
+\resumeItem{C\# implementations of NTRU and NTRU Prime released publicly to Bouncy Castle's open source cryptography library}
+\resumeItemListEnd
+
+\resumeSubheading
 {Searchable Encrypted Database}{Jun. 2022 -- July.2022}
-{Java, Maven, Redis, Apache Spark}{}
+{Java, Maven, Redis, Apache Spark}{\href{https://www.sciencedirect.com/science/article/pii/S2405844024054306}{Science Direct Journal}}
 \resumeItemListStart
-\resumeItem{Developed a searchable encrypted database system using searchable symmetric encryption and other cryptographic primitives}
-\resumeItem{Enabled fast query and insertion of data on an encrypted database}
-\resumeItem{High performance and parallelism achieved using Apache Spark}
+\resumeItem{Developed searchable encrypted database system with searchable symmetric encryption and other cryptographic primitives}
+\resumeItem{Enabled fast query/insertion and constant-time deletion, with highly scalable parallelism using Apache Spark}
+\resumeItem{Achieved up to 700 times speedup compared to existing DSSE schemes}
 \resumeItemListEnd
 
 \resumeSubheading
-{NTRU/NTRU Prime Post Quantum Cryptography Library}{Apr. 2022 -- Nov.2022}
-{C\#, .NET, C}{\href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntruprime}{GitHub (NTRU Prime)}, \href{https://github.com/bcgit/bc-csharp/tree/master/crypto/src/pqc/crypto/ntru}{GitHub (NTRU)}}
-\resumeItemListStart
-\resumeItem{Developed a post‐quantum lattice‐based public‐key cryptography library for C\# .NET Framework Standard 2.0}
-\resumeItem{Implemented NIST PQC Round 3’s NTRU Prime and NTRU algorithms}
-\resumeItem{Resistance against side-channel attacks such as timing attack were considered during development}
-\resumeItem{Unit testing of the implementation using Known Answer Tests (KAT) from NIST}
-\resumeItemListEnd
-
-\resumeSubheading
-{AIBugHunter ‐ ML‐based Security Vulnerability Detection Extension}{Jun. 2022 -- Nov.2022}
+{ML‐based Code Security Vulnerability Detection Extension}{Jun. 2022 -- Nov.2022}
 {Python, Flask, PyTorch, ONNX, TypeScript, Node.js, GCP Vertex AI, Docker, VSCode API}{\href{https://github.com/aibughunter/aibughunter}{GitHub}, \href{https://marketplace.visualstudio.com/items?itemName=AIBugHunter.aibughunter}{VSCode Marketplace}}
 \resumeItemListStart
-\resumeItem{Developed a VSCode Extension that detects vulnerable functions in real time, provide analytics on the vulnerable line, and suggest potential fixes directly within the editor}
-\resumeItem{Used a PyTorch AI Model built by a PhD Student at Monash University who I've worked closely with during development}
-\resumeItem{Developed Docker Image and FastAPI script to provide API endpoint for model inference, and Python stress benchmark tool to evaluate its scalability}
-\resumeItem{Demoed at Monash University Open Day and TechFutureFest 2022}
+\resumeItem{Developed a VSCode extension that detects, highlights, and suggest fixes to vulnerable functions in real time within the IDE}
+%\resumeItem{Used a PyTorch AI Model built by a PhD Student at Monash University who I've worked closely with during development}
+\resumeItem{Developed containerised FastAPI-based API endpoint for model inference, and a stress benchmark tool}
+\resumeItem{Demoed at Monash University Open Day, TechFutureFest 2022. Published research journal: \textit{\href{https://link.springer.com/article/10.1007/s10664-023-10346-3}{Empirical Software Engineering}}}
 \resumeItemListEnd
-%
+
 %\resumeSubheading
 %{finman ‐ Command line personal finance manager}{Jan. 2022}
 %{C++, SQLite}{\href{https://github.com/k493r0/finman}{GitHub}}
@@ -54,13 +62,13 @@
 \resumeItem{Developed Node.js REST API endpoints for creating transactions, Redis Pub/Sub for announcing blocks}
 \resumeItemListEnd
 
-%\resumeSubheading
-%{KeySort ‐ Command Line Utility for Sorting Local Files with Keyboard Keys}{Nov. 2021}
-%{Rust}{\href{https://github.com/k493r0/keysort}{GitHub}}
-%\resumeItemListStart
-%\resumeItem{Small command‐line utility to sort files and folders into character assigned folders}
-%\resumeItem{Build with Rust with efficiency and speed in consideration}
-%\resumeItemListEnd
+\resumeSubheading
+{KeySort ‐ Command Line Utility for Sorting Local Files with Keyboard Keys}{Nov. 2021}
+{Rust}{\href{https://github.com/k493r0/keysort}{GitHub}}
+\resumeItemListStart
+\resumeItem{Small command‐line utility to sort files and folders into character assigned folders}
+\resumeItem{Build with Rust with efficiency and speed in consideration}
+\resumeItemListEnd
 
 \resumeSubheading
 {EqManage ‐ Equipment Management System}{Oct 2019 -- Jan. 2021}
