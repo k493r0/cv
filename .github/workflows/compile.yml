@@ -1,9 +1,13 @@
-name: Build and Reease Latex PDF
+name: Build and Release Latex PDF
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - '**.tex'
   pull_request:
     branches: [ "main" ]
+    paths:
+      - '**.tex'
 
 jobs:
   gather-info:
