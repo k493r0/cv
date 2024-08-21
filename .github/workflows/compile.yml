@@ -26,7 +26,7 @@ jobs:
         run: |
           releases=$(gh release list --limit 100)
           count=$(echo "$releases" | grep -c "v${{ steps.date.outputs.date }}." || false)
-          echo "::set-output name=count::$(($count + 1))"
+          echo "::set-output name=count::$(($count))"
 
       - name: Set tag and release name
         id: set-tag-release
