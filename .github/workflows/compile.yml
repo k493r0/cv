@@ -68,8 +68,8 @@ jobs:
       - name: Set tag and release name
         id: set-tag-release
         run: |
-          echo "::set-output name=tag::${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
-          echo "::set-output name=release_name::Release ${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
+          echo "::set-output name=tag::v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
+          echo "::set-output name=release_name::Release v${{ steps.date.outputs.date }}.${{ steps.get-release-count.outputs.count }}"
 
       - name: Get current time
         uses: josStorer/get-current-time@v2.0.2
