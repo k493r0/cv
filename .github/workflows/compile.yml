@@ -44,6 +44,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
 
+      - name: Write commit hash to version file
+        run: echo "${{ github.sha }}" > version
+
       - name: Download PDFs
         uses: actions/download-artifact@v3
         with:
