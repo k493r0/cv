@@ -97,5 +97,4 @@ jobs:
           fi
           
           assets=($pdf_files)
-          # gh release create "${{ steps.set-tag-release.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}"
           gh release create "${{ needs.gather-info.outputs.tag }}" "${assets[@]}" --notes "Updated on ${{ steps.current-time.outputs.time }}" --title "${{ needs.gather-info.outputs.release_name }}"
