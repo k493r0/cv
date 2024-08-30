@@ -1,3 +1,5 @@
+![Compile Latex](https://github.com/k493r0/cv/actions/workflows/compile.yml/badge.svg)
+
 # Yuki Kume's CV/Resume
 
 ## Versions
